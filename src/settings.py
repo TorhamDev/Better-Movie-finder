@@ -1,0 +1,4 @@
+SETTINGS = {
+    "LOG_LEVEL": "ERROR",
+    "DOWNLOD_DELAY": 1,
+}
