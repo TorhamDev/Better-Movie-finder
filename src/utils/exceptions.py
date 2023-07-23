@@ -1,0 +1,2 @@
+class WebSiteError(Exception):
+    pass

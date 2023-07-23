@@ -1,6 +1,7 @@
 import requests  # type: ignore
 from scrapy.selector import Selector, SelectorList  # type: ignore
 from utils.typeshints import request_content  # type: ignore
+from utils.exceptions import WebSiteError
 
 
 class Scraper:
@@ -15,7 +16,7 @@ class Scraper:
             self.request_content = req.content
             return self.request_content
 
-        raise ValueError(f"Recived {req.status_code} http status code from {self.url}")
+        raise WebSiteError(f"Recived {req.status_code} http status code from {self.url}")
 
     def css(self, query: str) -> SelectorList[Selector]:
         return Selector(text=self.request_content).css(query)
