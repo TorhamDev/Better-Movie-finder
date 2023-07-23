@@ -1,6 +1,6 @@
 import requests  # type: ignore
 from scrapy.selector import Selector, SelectorList  # type: ignore
-from utils.types import request_content  # type: ignore
+from utils.typeshints import request_content  # type: ignore
 
 
 class Scraper:
