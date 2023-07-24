@@ -11,7 +11,7 @@ lint:
 
 .PHONY: black
 black:
-	black -l 79 *.py
+	black -l 79 src/*.py
 
 .PHONY: clean
 clean:
