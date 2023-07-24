@@ -5,7 +5,7 @@ from utils.exceptions import WebSiteError
 
 
 class Scraper:
-    def __init__(self, url) -> None:
+    def __init__(self, url=None) -> None:
         self.url = url
         self.request_content = None
 
@@ -16,7 +16,9 @@ class Scraper:
             self.request_content = req.content
             return self.request_content
 
-        raise WebSiteError(f"Recived {req.status_code} http status code from {self.url}")
+        raise WebSiteError(
+            f"Recived {req.status_code} http status code from {self.url}"
+        )
 
     def css(self, query: str) -> SelectorList[Selector]:
         return Selector(text=self.request_content).css(query)
