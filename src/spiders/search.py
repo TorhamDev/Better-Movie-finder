@@ -1,12 +1,14 @@
 from scraper import Scraper
+from scrapy.selector import Selector, SelectorList  # type: ignore
+from settings import AVAMOVIE_BASE_URL
 
 
 class SearchSpider(Scraper):
     def _create_search_url(self, query: str):
         query = query.replace(" ", "+")
-        return f"https://avamovie3.info/?s={query}"
+        return f"{AVAMOVIE_BASE_URL}/?s={query}"
 
-    def search(self, query: str):
+    def search(self, query: str) -> SelectorList[Selector]:
         results = list()
         self.url = self._create_search_url(query)
         self.scrap()
