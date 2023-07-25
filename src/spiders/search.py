@@ -1,6 +1,6 @@
-from scraper import Scraper
+from scraper import Scraper  # type: ignore
 from scrapy.selector import Selector, SelectorList  # type: ignore
-from settings import AVAMOVIE_BASE_URL
+from settings import AVAMOVIE_BASE_URL  # type: ignore
 
 
 class SearchSpider(Scraper):
