@@ -45,9 +45,10 @@ class Window(QWidget, Ui_Form):
         self.output.setText(text)
 
     def clear(self):
-         self.list_widget.clear()
-         self.output.clear()
-         self.search_results = {}
+        self.lineEdit.clear()
+        self.list_widget.clear()
+        self.output.clear()
+        self.search_results = {}
 
 
 

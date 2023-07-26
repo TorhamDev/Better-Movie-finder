@@ -16,7 +16,7 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.lineEdit = QtWidgets.QLineEdit(parent=Form)
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.setFont(QtGui.QFont('arial', 10))
+        self.lineEdit.setFont(QtGui.QFont('arial', 12))
         self.lineEdit.setPlaceholderText('Type your movie here :')
         self.horizontalLayout.addWidget(self.lineEdit)
         self.search_btn = QtWidgets.QPushButton(parent=Form)
