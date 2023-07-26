@@ -2,14 +2,16 @@ from spiders.download_links import DownloadLinksSpider  # type: ignore
 from spiders.search import SearchSpider  # type: ignore
 
 from utils.banner import print_banner  # type: ignore
-from utils.tools import ask_with_options  # type: ignore
+from utils.tools import ask_with_options, clear_terminal_screen  # type: ignore
 import settings  # type: ignore
+from rich import print
 
 
 def search_movie():
     query = input("Enter movie name: ")
     spider = SearchSpider()
     search_results = spider.search(query=query)
+    clear_terminal_screen()
     print("Result Count: ", len(search_results))
     seleceted = ask_with_options(
         options=search_results.keys(),
@@ -25,11 +27,10 @@ def get_moive_download_links(page_url=None):
     spider = DownloadLinksSpider(page_url)
     results = spider.get_download_links()
     for quality, link in results:
-        print(quality, ":", link)
+        print(f":star: {quality} => {link}")
 
 
 def main():
-    print_banner()
     user_choice = ask_with_options(
         options=settings.USER_CHOICES, question=settings.START_MENU_QUESTION
     )
@@ -47,10 +48,6 @@ def main():
 
 
 if __name__ == "__main__":
+    clear_terminal_screen()
+    print_banner()
     main()
-
-
-# from spiders.download_links import DownloadLinksSpider   # type: ignore
-
-# spider = DownloadLinksSpider("https://avamovie3.info/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d9%81%db%8c%d9%84%d9%85-the-amazing-spider-man-2-2014/")
-# print(list(spider.get_download_links()))
