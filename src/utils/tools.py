@@ -1,4 +1,5 @@
 import inquirer  # type: ignore
+from settings import USER_CHOICES
 
 
 def clean_text(text: str) -> str:
@@ -13,8 +14,8 @@ def clean_text(text: str) -> str:
     return text
 
 
-def ask_user_choice():
-    options = ["📡 Both", "🔎 Search movie name", "⬇️ Get a movie download links"]
+def ask_user_choice() -> str:
+    options = USER_CHOICES
 
     questions = [
         inquirer.List(

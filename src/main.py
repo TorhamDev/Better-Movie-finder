@@ -1,10 +1,22 @@
 from utils.banner import print_banner  # type: ignore
 from utils.tools import ask_user_choice  # type: ignore
+from settings import (
+    USER_CHOICE_BOTH,
+    USER_CHOICE_GET_DOWNLOAD_LINK,
+    USER_CHOICE_SEARCH_MOIVE,
+)
 
 
 def main():
     print_banner()
-    ask_user_choice()
+    user_choice = ask_user_choice()
+
+    if user_choice == USER_CHOICE_BOTH:
+        ...
+    elif user_choice == USER_CHOICE_SEARCH_MOIVE:
+        ...
+    elif user_choice == USER_CHOICE_GET_DOWNLOAD_LINK:
+        ...
 
 
 if __name__ == "__main__":
