@@ -20,7 +20,8 @@ def main():
         search_results = spider.search(query=query)
         print("Result Count: ", len(search_results))
         seleceted = ask_with_options(
-            options=search_results.keys(), question=settings.SEARCH_SELECET_QUESTION
+            options=search_results.keys(),
+            question=settings.SEARCH_SELECET_QUESTION,
         )
         print("Movie Page link: ", search_results[seleceted])
 
