@@ -6,6 +6,28 @@ from utils.tools import ask_with_options  # type: ignore
 import settings  # type: ignore
 
 
+def search_movie():
+    query = input("Enter movie name: ")
+    spider = SearchSpider()
+    search_results = spider.search(query=query)
+    print("Result Count: ", len(search_results))
+    seleceted = ask_with_options(
+        options=search_results.keys(),
+        question=settings.SEARCH_SELECET_QUESTION,
+    )
+    return search_results[seleceted]
+
+
+def get_moive_download_links(page_url=None):
+    if not page_url:
+        page_url = input("Enter movie page url: ")
+
+    spider = DownloadLinksSpider(page_url)
+    results = spider.get_download_links()
+    for quality, link in results:
+        print(quality, ":", link)
+
+
 def main():
     print_banner()
     user_choice = ask_with_options(
@@ -13,20 +35,15 @@ def main():
     )
 
     if user_choice == settings.USER_CHOICE_BOTH:
-        ...
+        movie_page_link = search_movie()
+        get_moive_download_links(movie_page_link)
+
     elif user_choice == settings.USER_CHOICE_SEARCH_MOIVE:
-        query = input("Enter movie name: ")
-        spider = SearchSpider()
-        search_results = spider.search(query=query)
-        print("Result Count: ", len(search_results))
-        seleceted = ask_with_options(
-            options=search_results.keys(),
-            question=settings.SEARCH_SELECET_QUESTION,
-        )
-        print("Movie Page link: ", search_results[seleceted])
+        result = search_movie()
+        print("Movie Page link: ", result)
 
     elif user_choice == settings.USER_CHOICE_GET_DOWNLOAD_LINK:
-        ...
+        get_moive_download_links()
 
 
 if __name__ == "__main__":
