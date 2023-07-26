@@ -23,7 +23,9 @@ itemloaders==1.1.0
 jmespath==1.0.1
 lazy-object-proxy==1.9.0
 lxml==4.9.3
+markdown-it-py==3.0.0
 mccabe==0.7.0
+mdurl==0.1.2
 mypy==1.4.1
 mypy-extensions==1.0.0
 packaging==23.1
@@ -35,6 +37,7 @@ pyasn1==0.5.0
 pyasn1-modules==0.3.0
 pycparser==2.21
 PyDispatcher==2.0.7
+Pygments==2.15.1
 pylint==2.17.4
 pyOpenSSL==23.2.0
 python-editor==1.0.4
@@ -42,6 +45,7 @@ queuelib==1.6.2
 readchar==4.0.5
 requests==2.31.0
 requests-file==1.5.1
+rich==13.4.2
 Scrapy==2.9.0
 scrapyscript==1.1.5
 service-identity==23.1.0
