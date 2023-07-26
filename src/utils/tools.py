@@ -1,6 +1,8 @@
+import inquirer  # type: ignore
+
+
 def clean_text(text: str) -> str:
     if text:
-        print(".....")
         return (
             text.replace("\t", "")
             .replace("\u200e", " ")
@@ -9,3 +11,18 @@ def clean_text(text: str) -> str:
             .replace("\r", " ")
         )
     return text
+
+
+def ask_user_choice():
+    options = ["📡 Both", "🔎 Search movie name", "⬇️ Get a movie download links"]
+
+    questions = [
+        inquirer.List(
+            "option",
+            message="Select menu [Up & Down]",
+            choices=options,
+        ),
+    ]
+    answers = inquirer.prompt(questions)
+
+    return answers["option"]

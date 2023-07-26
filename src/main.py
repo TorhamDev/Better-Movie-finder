@@ -1,35 +1,14 @@
-from utils.banner import print_banner
-
+from utils.banner import print_banner  # type: ignore
+from utils.tools import ask_user_choice  # type: ignore
 
 
 def main():
     print_banner()
-
-
-
-
-
+    ask_user_choice()
 
 
 if __name__ == "__main__":
     main()
-
-
-# import inquirer
-
-# options = ["🔎 Search movie name", "⬇️ Get a movie download links", "📡 Both"]
-
-# questions = [
-#     inquirer.List(
-#         "option",
-#         message="Select menu",
-#         choices=options,
-#     ),
-# ]
-# answers = inquirer.prompt(questions)
-
-# print(answers)
-# print(answers["option"])
 
 
 # from spiders.download_links import DownloadLinksSpider   # type: ignore
@@ -43,4 +22,3 @@ if __name__ == "__main__":
 # for i in data:
 #     print(i.css("h2.title a::attr(href)").extract()[0])
 #     print(i.css("h2.title ::text").extract()[0])
-
