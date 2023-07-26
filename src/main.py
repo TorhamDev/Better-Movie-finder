@@ -1,3 +1,6 @@
+from spiders.download_links import DownloadLinksSpider  # type: ignore
+from spiders.search import SearchSpider  # type: ignore
+
 from utils.banner import print_banner  # type: ignore
 from utils.tools import ask_user_choice  # type: ignore
 from settings import (

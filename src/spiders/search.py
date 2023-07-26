@@ -8,12 +8,14 @@ class SearchSpider(Scraper):
         query = query.replace(" ", "+")
         return f"{AVAMOVIE_BASE_URL}/?s={query}"
 
-    def search(self, query: str) -> SelectorList[Selector]:
+    def search(self, query: str) -> dict[str, str]:
         results = list()
         self.url = self._create_search_url(query)
         self.scrap()
 
-        results.extend(self.xpath("/html/body/main/div[2]/div/div[2]/article"))
+        results.extend(
+            self.xpath("/html/body/main/div[2]/div/div[2]/article").css("h2.title a")
+        )
         while True:
             next_page = (
                 self.xpath("/html/body/main/div[2]/div/div[2]/div/a")
@@ -26,6 +28,17 @@ class SearchSpider(Scraper):
 
             self.url = next_page
             self.scrap()
-            results.extend(self.xpath("/html/body/main/div[2]/div/div[2]/article"))
+            results.extend(
+                self.xpath("/html/body/main/div[2]/div/div[2]/article").css(
+                    "h2.title a"
+                )
+            )
 
-        return results
+        search_result: dict[str, str] = dict()
+
+        for result in results:
+            title = result.xpath("@title").get()
+            link = result.xpath("@href").get()
+            search_result[title] = link
+
+        return search_result

@@ -1,5 +1,5 @@
 import inquirer  # type: ignore
-from settings import USER_CHOICES
+from settings import USER_CHOICES # type: ignore
 
 
 def clean_text(text: str) -> str:
