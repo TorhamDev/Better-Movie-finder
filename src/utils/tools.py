@@ -1,5 +1,4 @@
 import inquirer  # type: ignore
-from settings import USER_CHOICES # type: ignore
 
 
 def clean_text(text: str) -> str:
@@ -14,13 +13,11 @@ def clean_text(text: str) -> str:
     return text
 
 
-def ask_user_choice() -> str:
-    options = USER_CHOICES
-
+def ask_with_options(options: list, question: str) -> str:
     questions = [
         inquirer.List(
             "option",
-            message="Select menu [Up & Down]",
+            message=question,
             choices=options,
         ),
     ]
