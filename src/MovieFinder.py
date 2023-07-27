@@ -14,7 +14,6 @@ class Window(QWidget, Ui_Form):
         font_id = QFontDatabase.addApplicationFont("./fonts/Vazir.ttf")
         if font_id < 0: print("Error")
         font = QFontDatabase.applicationFontFamilies(font_id)
-        print(font)
         self.lineEdit.setFont(QFont(font[0], 11))
         self.list_widget.setFont(QFont(font[0], 10))
         self.output.setFont(QFont(font[0], 10))
