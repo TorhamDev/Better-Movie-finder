@@ -1,5 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QWidget, QApplication, QMessageBox
+from PyQt6.QtGui import QFont, QFontDatabase
 from MainWindow.MainWindowUI import Ui_Form
 from spiders.download_links import DownloadLinksSpider  # type: ignore
 from spiders.search import SearchSpider
@@ -10,6 +11,13 @@ class Window(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.show()
+        font_id = QFontDatabase.addApplicationFont("./fonts/Vazir.ttf")
+        if font_id < 0: print("Error")
+        font = QFontDatabase.applicationFontFamilies(font_id)
+        print(font)
+        self.lineEdit.setFont(QFont(font[0], 11))
+        self.list_widget.setFont(QFont(font[0], 10))
+        self.output.setFont(QFont(font[0], 10))
         self.lineEdit.returnPressed.connect(self.search_signal)
         self.search_btn.clicked.connect(self.search_signal)
         self.list_widget.clicked.connect(self.select_movie)
@@ -32,6 +40,8 @@ class Window(QWidget, Ui_Form):
                 spider = SearchSpider()
                 self.search_results = spider.search(query=self.lineEdit.text())
                 items = [k for k, v in self.search_results.items()]
+                self.list_widget.clear()
+                self.output.clear()
                 self.list_widget.addItems(items)
         
 

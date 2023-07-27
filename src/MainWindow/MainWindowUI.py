@@ -16,7 +16,6 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.lineEdit = QtWidgets.QLineEdit(parent=Form)
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.setFont(QtGui.QFont('arial', 12))
         self.lineEdit.setPlaceholderText('Type your movie here :')
         self.horizontalLayout.addWidget(self.lineEdit)
         self.search_btn = QtWidgets.QPushButton(parent=Form)
@@ -29,7 +28,6 @@ class Ui_Form(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.list_widget = QtWidgets.QListWidget(parent=Form)
         self.list_widget.setObjectName("list_widget")
-        self.list_widget.setFont(QtGui.QFont('arial', 10))
         self.verticalLayout.addWidget(self.list_widget)
         self.clear_btn = QtWidgets.QPushButton(parent=Form)
         icon1 = QtGui.QIcon()
@@ -40,7 +38,6 @@ class Ui_Form(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout)
         self.output = QtWidgets.QTextEdit(parent=Form)
         self.output.setObjectName("output")
-        self.output.setFont(QtGui.QFont('arial', 10))
         self.output.setReadOnly(True)
         self.horizontalLayout_2.addWidget(self.output)
 
