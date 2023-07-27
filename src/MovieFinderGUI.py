@@ -1,8 +1,8 @@
 import sys
 from PyQt6.QtWidgets import QWidget, QApplication, QMessageBox
 from PyQt6.QtGui import QFont, QFontDatabase
-from MainWindow.MainWindowUI import Ui_Form
-from spiders.download_links import DownloadLinksSpider  # type: ignore
+from gui.MainWindow.MainWindowUI import Ui_Form
+from spiders.download_links import DownloadLinksSpider
 from spiders.search import SearchSpider
 
 
@@ -11,7 +11,7 @@ class Window(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.show()
-        font_id = QFontDatabase.addApplicationFont("./fonts/Vazir.ttf")
+        font_id = QFontDatabase.addApplicationFont("./gui/fonts/Vazir.ttf")
         if font_id < 0: print("Error")
         font = QFontDatabase.applicationFontFamilies(font_id)
         self.lineEdit.setFont(QFont(font[0], 11))
