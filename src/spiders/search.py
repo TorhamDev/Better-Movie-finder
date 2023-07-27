@@ -1,11 +1,10 @@
 from scraper import Scraper  # type: ignore
 from settings import AVAMOVIE_BASE_URL  # type: ignore
-from urllib.parse import quote
 
 
 class SearchSpider(Scraper):
     def _create_search_url(self, query: str):
-        query = quote(query)
+        query = query.replace(" ", "+")
         return f"{AVAMOVIE_BASE_URL}/?s={query}"
 
     def search(self, query: str) -> dict[str, str]:
