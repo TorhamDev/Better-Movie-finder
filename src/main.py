@@ -13,6 +13,11 @@ def search_movie():
     spider = SearchSpider()
     search_results = spider.search(query=query)
     clear_terminal_screen()
+
+    if len(search_results) == 0:
+        print("\n", "Nothing found :cry:".center(terminal_columns), "\n")
+        quit()
+
     print(
         "\n",
         f":sparkles: :cake: [red]Result Count:[/red] {len(search_results)}:sparkles:".center(
@@ -20,6 +25,7 @@ def search_movie():
         ),
         "\n",
     )
+
     seleceted = ask_with_options(
         options=search_results.keys(),
         question=settings.SEARCH_SELECET_QUESTION,

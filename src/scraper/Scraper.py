@@ -1,8 +1,7 @@
 import requests  # type: ignore
 from scrapy.selector import Selector, SelectorList  # type: ignore
 from utils.typeshints import request_content  # type: ignore
-from utils.exceptions import WebSiteError
-
+from utils.exceptions import WebSiteError # type: ignore
 
 class Scraper:
     def __init__(self, url=None) -> None:
