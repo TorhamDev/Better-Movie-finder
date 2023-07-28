@@ -1,9 +1,5 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-
-
-![avamove_log](./readme/avamovie_logo.png)
-
 # Better-Movie-finder
 Better version of [Moive-finder](https://github.com/TorhamDev/Movie-finder/)
 
@@ -28,7 +24,19 @@ python src/main.py
 
 # Enjoy :)
 ```
+# How To Run GUI version?
+```bash
+# clone the project in your local
+git clone https://github.com/TorhamDev/Movie-finder.git
 
+# install dependencies
+pip install -r ./requirements.txt
+
+# run the gui_main.py 
+python src/gui_main.py
+
+# Enjoy again :)
+```
 ## License
 
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
