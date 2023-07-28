@@ -34,8 +34,10 @@ git clone https://github.com/TorhamDev/Movie-finder.git
 # install dependencies
 pip install -r ./requirements.txt
 
-# run the gui_main.py 
-python src/gui_main.py
+# run the gui_main.py
+cd src
+
+python gui_main.py
 
 # Enjoy again :)
 ```
