@@ -11,10 +11,12 @@ class Window(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.show()
-        font_id = QFontDatabase.addApplicationFont("./gui/fonts/Vazir.ttf")
+        font_id = QFontDatabase.addApplicationFont('./gui/fonts/font.ttf')
+        print(font_id)
         if font_id < 0:
             print("Error")
         font = QFontDatabase.applicationFontFamilies(font_id)
+        print(font)
         self.lineEdit.setFont(QFont(font[0], 11))
         self.list_widget.setFont(QFont(font[0], 10))
         self.output.setFont(QFont(font[0], 10))
@@ -44,6 +46,10 @@ class Window(QWidget, Ui_Form):
         text = "Movie Links :\n\n"
         spider = DownloadLinksSpider(self.search_results[name])
         results = spider.get_download_links()
+        if list(results) == []:
+            QMessageBox.warning(self, 'Warning !', 'We didn\'t find any download link for your movie',
+                                QMessageBox.StandardButton.Ok)
+            return
         for quality, link in results:
             text += f"{quality} :\n{link}\n----------------\n"
         self.output.setText(text)
