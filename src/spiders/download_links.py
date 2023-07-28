@@ -3,11 +3,24 @@ from utils.tools import clean_text  # type: ignore
 
 
 class DownloadLinksSpider(Scraper):
+    """
+    This spider requests the movie download page and extracts the download links
+    """
+
     def __init__(self, url) -> None:
         self.url = url
         self.scrap()
 
     def get_download_links(self):
+        """
+        Extracing download link for the movie download page
+
+        return : zip object
+        [(quality, link)]
+
+        example return :
+        [('Blury 1080p', 'https://download.link/the.movie.mkv')]
+        """
         download_links = self.css("div.row_data")
 
         links = []

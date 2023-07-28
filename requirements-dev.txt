@@ -60,3 +60,4 @@ w3lib==2.1.1
 wcwidth==0.2.6
 wrapt==1.15.0
 zope.interface==6.0
+PyQt6==6.4.2
