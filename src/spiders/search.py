@@ -3,11 +3,38 @@ from settings import AVAMOVIE_BASE_URL  # type: ignore
 
 
 class SearchSpider(Scraper):
-    def _create_search_url(self, query: str):
+    def _create_search_url(self, query: str) -> str:
+        """
+        converting search query into search url for AvaMovie
+
+        param : query : user search query
+
+        retrun : search link with qury
+
+        example :
+        input : 'spider man'
+        retrun : 'https://avamovie3.info/?s=spider+man'
+        """
+
         query = query.replace(" ", "+")
         return f"{AVAMOVIE_BASE_URL}/?s={query}"
 
     def search(self, query: str) -> dict[str, str]:
+        """
+        Requesting to search page with search query and extrac all results
+
+        param : query : user search query
+
+        retrun : dict of movie name and download page link
+
+        example :
+        input : 'amazing spider man'
+        retrun :
+        {
+            'The Amazing Spider-Man 2012':'https://avamovie3.info/دانلود-فیلم-the-amazing-spider-man-2012/'
+        }
+        """
+        
         results = list()
         self.url = self._create_search_url(query)
         self.scrap()
