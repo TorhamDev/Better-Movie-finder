@@ -6,6 +6,9 @@ columns = get_terminal_size().columns
 
 
 def print_banner():
+    """
+    printing banner in the midle of terminal window
+    """
     banner = """
     [red]
 

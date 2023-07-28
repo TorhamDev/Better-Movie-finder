@@ -4,6 +4,9 @@ from platform import platform
 
 
 def clean_text(text: str) -> str:
+    """
+    Clear whitespace and extra chars from text
+    """
     if text:
         return (
             text.replace("\t", "")
@@ -16,6 +19,14 @@ def clean_text(text: str) -> str:
 
 
 def ask_with_options(options: list, question: str) -> str:
+    """
+    Create a ask menu with inquirer lib
+
+    param : options : list of option in menu
+    param : question : question for showing to user
+
+    retrun : user answer/select
+    """
     questions = [
         inquirer.List(
             "option",

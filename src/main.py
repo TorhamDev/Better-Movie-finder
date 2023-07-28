@@ -9,6 +9,11 @@ from rich.prompt import Prompt
 
 
 def search_movie():
+    """
+    Searching process form  getting seach input to finding moive download page
+
+    return : moive download link
+    """
     query = Prompt.ask(":movie_camera: Enter movie name")
     spider = SearchSpider()
     search_results = spider.search(query=query)
@@ -34,6 +39,17 @@ def search_movie():
 
 
 def get_moive_download_links(page_url=None):
+    """
+    Process of exracting movie download links from moive download page
+
+    param : page_url : movie download page
+
+    and then print all download links with quality
+    example :
+
+    :star: Bluray 1080p => https://download.movie.link/1080p.mkv
+    :star: Bluray 720p => https://download.movie.link/720.mkv
+    """
     if not page_url:
         page_url = Prompt.ask(":movie_camera: Enter movie page url")
 
@@ -44,6 +60,7 @@ def get_moive_download_links(page_url=None):
 
 
 def main():
+    
     user_choice = ask_with_options(
         options=settings.USER_CHOICES, question=settings.START_MENU_QUESTION
     )
