@@ -25,7 +25,7 @@ def ask_with_options(options: list, question: str) -> str:
     param : options : list of option in menu
     param : question : question for showing to user
 
-    retrun : user answer/select
+    return : user answer/select
     """
     questions = [
         inquirer.List(
@@ -44,13 +44,13 @@ def clear_terminal_screen() -> None:
     clearing terminal by running clear in linux and mac. and cls in windows
     """
 
-    runing_os = platform()
+    running = platform()
 
-    if "Windows" in runing_os:
+    if "Windows" in running:
         system("cls")
 
-    elif "Linux" in runing_os:
+    elif "Linux" in running:
         system("clear")
 
-    elif "macOS" in runing_os:
+    elif "macOS" in running:
         system("clear")

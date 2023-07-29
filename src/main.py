@@ -10,9 +10,9 @@ from rich.prompt import Prompt
 
 def search_movie():
     """
-    Searching process form  getting seach input to finding moive download page
+    Searching process form  getting search input to finding movie download page
 
-    return : moive download link
+    return : movie download link
     """
     query = Prompt.ask(":movie_camera: Enter movie name")
     spider = SearchSpider()
@@ -31,16 +31,16 @@ def search_movie():
         "\n",
     )
 
-    seleceted = ask_with_options(
+    selected = ask_with_options(
         options=search_results.keys(),
-        question=settings.SEARCH_SELECET_QUESTION,
+        question=settings.SEARCH_SELECT_QUESTION,
     )
-    return search_results[seleceted]
+    return search_results[selected]
 
 
-def get_moive_download_links(page_url=None):
+def get_movie_download_links(page_url=None):
     """
-    Process of exracting movie download links from moive download page
+    Process of extracting movie download links from movie download page
 
     param : page_url : movie download page
 
@@ -67,14 +67,14 @@ def main():
 
     if user_choice == settings.USER_CHOICE_BOTH:
         movie_page_link = search_movie()
-        get_moive_download_links(movie_page_link)
+        get_movie_download_links(movie_page_link)
 
-    elif user_choice == settings.USER_CHOICE_SEARCH_MOIVE:
+    elif user_choice == settings.USER_CHOICE_SEARCH_MOVIE:
         result = search_movie()
         print(":smiling_imp: Movie Page link: ", result)
 
     elif user_choice == settings.USER_CHOICE_GET_DOWNLOAD_LINK:
-        get_moive_download_links()
+        get_movie_download_links()
 
 
 if __name__ == "__main__":

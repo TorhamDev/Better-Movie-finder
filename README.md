@@ -1,7 +1,7 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 # Better-Movie-finder
-Better version of [Moive-finder](https://github.com/TorhamDev/Movie-finder/)
+Better version of [Movie-finder](https://github.com/TorhamDev/Movie-finder/)
 
 
 Is a scraper script to search for movies and find movie download links from my **favorite** movie website (**avamovie**). As a result, I don't need to open the browser to find and download the movie! XD

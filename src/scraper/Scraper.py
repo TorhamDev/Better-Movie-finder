@@ -28,7 +28,7 @@ class Scraper:
             return self.request_content
 
         raise WebSiteError(
-            f"Recived {req.status_code} http status code from {self.url}"
+            f"Received {req.status_code} http status code from {self.url}"
         )
 
     def css(self, query: str) -> SelectorList[Selector]:
