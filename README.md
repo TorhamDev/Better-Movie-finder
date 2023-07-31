@@ -7,6 +7,8 @@ Better version of [Moive-finder](https://github.com/TorhamDev/Movie-finder/)
 Is a scraper script to search for movies and find movie download links from my **favorite** movie website (**avamovie**). As a result, I don't need to open the browser to find and download the movie! XD
 
 ## Demo :)
+https://github.com/TorhamDev/Better-Movie-finder/assets/87639984/9e40dc56-5ffc-4531-bcd3-fe101a409f3b
+
 
 
 
@@ -30,10 +32,12 @@ python src/main.py
 git clone https://github.com/TorhamDev/Movie-finder.git
 
 # install dependencies
-pip install -r ./requirements.txt
+pip install -r ./requirements-gui.txt
 
-# run the gui_main.py 
-python src/gui_main.py
+# run the gui_main.py
+cd src
+
+python gui_main.py
 
 # Enjoy again :)
 ```
