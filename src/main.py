@@ -1,11 +1,11 @@
+import sys
+from rich import print as r_print
+from rich.prompt import Prompt
 from spiders.download_links import DownloadLinksSpider  # type: ignore
 from spiders.search import SearchSpider  # type: ignore
-
 from utils.banner import print_banner, columns as terminal_columns  # type: ignore
 from utils.tools import ask_with_options, clear_terminal_screen  # type: ignore
 import settings  # type: ignore
-from rich import print
-from rich.prompt import Prompt
 
 
 def search_movie():
@@ -20,10 +20,10 @@ def search_movie():
     clear_terminal_screen()
 
     if len(search_results) == 0:
-        print("\n", "Nothing found :cry:".center(terminal_columns), "\n")
-        quit()
+        r_print("\n", "Nothing found :cry:".center(terminal_columns), "\n")
+        sys.exit()
 
-    print(
+    r_print(
         "\n",
         f":sparkles: :cake: [red]Result Count:[/red] {len(search_results)}:sparkles:".center(
             terminal_columns
@@ -56,11 +56,13 @@ def get_moive_download_links(page_url=None):
     spider = DownloadLinksSpider(page_url)
     results = spider.get_download_links()
     for quality, link in results:
-        print(f":star: {quality} => {link}")
+        r_print(f":star: {quality} => {link}")
 
 
 def main():
-    
+    """
+    script main
+    """
     user_choice = ask_with_options(
         options=settings.USER_CHOICES, question=settings.START_MENU_QUESTION
     )
@@ -71,7 +73,7 @@ def main():
 
     elif user_choice == settings.USER_CHOICE_SEARCH_MOIVE:
         result = search_movie()
-        print(":smiling_imp: Movie Page link: ", result)
+        r_print(":smiling_imp: Movie Page link: ", result)
 
     elif user_choice == settings.USER_CHOICE_GET_DOWNLOAD_LINK:
         get_moive_download_links()
