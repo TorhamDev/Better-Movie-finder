@@ -17,7 +17,8 @@ class Scraper:
         """
         Send http request to target URL and return request content.
 
-        If the request status code is 200, it means everything is fine and returns the content of the request.
+        If the request status code is 200, 
+        it means everything is fine and returns the content of the request.
         If the status code is not equal to 200, it returns WebSiteError
         """
 

@@ -1,3 +1,6 @@
+"""
+app setting configurations
+"""
 AVAMOVIE_BASE_URL = "https://avamovie3.info/"
 USER_CHOICE_BOTH = "📡 Both"
 USER_CHOICE_SEARCH_MOIVE = "🔎 Search movie name"
