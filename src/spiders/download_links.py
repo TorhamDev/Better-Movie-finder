@@ -13,18 +13,18 @@ class DownloadLinksSpider(Scraper):
 
     def get_download_links(self):
         """
-        Extracing download link for the movie download page
+        Extracting download link for the movie download page
 
         return : zip object
         [(quality, link)]
 
         example return :
-        [('Blury 1080p', 'https://download.link/the.movie.mkv')]
+        [('Bluray 1080p', 'https://download.link/the.movie.mkv')]
         """
         download_links = self.css("div.row_data")
 
         links = []
-        qualites = []
+        qualities = []
         for link in download_links:
             m_link = (
                 link.css("a.siteSingle__boxContent__downloadContent__link")
@@ -33,6 +33,6 @@ class DownloadLinksSpider(Scraper):
             )
             m_quality = clean_text(link.css("div.quality *::text").get())
             links.append(m_link)
-            qualites.append(m_quality)
+            qualities.append(m_quality)
 
-        return zip(filter(None, qualites), filter(None, links))
+        return zip(filter(None, qualities), filter(None, links))

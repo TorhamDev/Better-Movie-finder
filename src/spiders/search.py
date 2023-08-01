@@ -9,11 +9,11 @@ class SearchSpider(Scraper):
 
         param : query : user search query
 
-        retrun : search link with qury
+        return : search link with query
 
         example :
         input : 'spider man'
-        retrun : 'https://avamovie3.info/?s=spider+man'
+        return : 'https://avamovie3.info/?s=spider+man'
         """
 
         query = query.replace(" ", "+")
@@ -21,15 +21,15 @@ class SearchSpider(Scraper):
 
     def search(self, query: str) -> dict[str, str]:
         """
-        Requesting to search page with search query and extrac all results
+        Requesting to search page with search query and extract all results
 
         param : query : user search query
 
-        retrun : dict of movie name and download page link
+        return : dict of movie name and download page link
 
         example :
         input : 'amazing spider man'
-        retrun :
+        return :
         {
             'The Amazing Spider-Man 2012':'https://avamovie3.info/دانلود-فیلم-the-amazing-spider-man-2012/'
         }
